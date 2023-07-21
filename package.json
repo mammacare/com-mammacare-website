@@ -8,6 +8,7 @@
     "post-update": "yarn upgrade --latest"
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.4",
     "next": "^13",
     "next-sanity": "^5.1.2",
     "react": "^18",

@@ -1,6 +1,6 @@
-const project = {
-  name: "project",
-  title: "Projects",
+const page = {
+  name: "page",
+  title: "Pages",
   type: "document",
   fields: [
     { name: "name", title: "Name", type: "string" },
@@ -24,4 +24,4 @@ const project = {
   ],
 };
 
-export default project;
+export default page;
