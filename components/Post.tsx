@@ -28,10 +28,16 @@ const Post = ({ post }) => {
   const {
     title = "Missing title",
     name = "Missing name",
-    categories,
-    authorImage,
+    categories = [],
+    authorImage = null,
     body = [],
   } = post;
+
+  if (!title) {
+    console.log("title is undefined");
+    return null;
+  }
+
   return (
     <article>
       <h1>{title}</h1>
