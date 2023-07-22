@@ -1,41 +1,34 @@
-import { isValidRequest } from "@sanity/webhook";
-import type { NextApiRequest, NextApiResponse } from "next";
+import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 
-type Data = {
-  message: string;
-};
+const SANITY_WEBHOOK_SECRET = process.env.SANITY_WEBHOOK_SECRET;
 
-const secret = process.env.SANITY_WEBHOOK_SECRET;
+export default async function handler(req, res) {
+  const signature = req.headers[SIGNATURE_HEADER_NAME];
+  const isValid = isValidSignature(
+    JSON.stringify(req.body),
+    signature,
+    SANITY_WEBHOOK_SECRET
+  );
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  if (req.method !== "POST") {
-    console.error("Must be a POST request");
-    return res.status(401).json({ message: "Must be a POST request" });
-  }
+  console.log(`===== Is the webhook request valid? ${isValid}`);
 
-  if (!isValidRequest(req, secret)) {
-    res.status(401).json({ message: "Invalid signature" });
+  // Validate signature
+  if (!isValid) {
+    res.status(401).json({ success: false, message: "Invalid signature" });
     return;
   }
 
   try {
-    const {
-      body: { type, slug },
-    } = req;
+    const pathToRevalidate = req.body.slug.current;
 
-    switch (type) {
-      case "post":
-        await res.revalidate(`/news/${slug}`);
-        return res.json({
-          message: `Revalidated "${type}" with slug "${slug}"`,
-        });
-    }
+    console.log(`===== Revalidating: ${pathToRevalidate}`);
 
-    return res.json({ message: "No managed type" });
+    await res.revalidate(pathToRevalidate);
+
+    return res.json({ revalidated: true });
   } catch (err) {
-    return res.status(500).send({ message: "Error revalidating" });
+    // Could not revalidate. The stale page will continue to be shown until
+    // this issue is fixed.
+    return res.status(500).send("Error while revalidating");
   }
 }
