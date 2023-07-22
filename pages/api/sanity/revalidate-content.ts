@@ -19,8 +19,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    console.log("body: ", req.body);
-    const pathToRevalidate = req.body.slug;
+    const pathToRevalidate = `/post/${req.body.slug}`;
 
     console.log(`===== Revalidating: ${pathToRevalidate}`);
 
