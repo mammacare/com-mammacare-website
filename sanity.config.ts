@@ -1,4 +1,5 @@
 import { defineConfig } from "sanity";
+import { vercelDeployTool } from "sanity-plugin-vercel-deploy";
 import { deskTool } from "sanity/desk";
 import schemas from "./sanity/schemas";
 
@@ -9,7 +10,7 @@ const config = defineConfig({
   dataset: "production",
   apiVersion: "2023-07-21",
   basePath: "/studio",
-  plugins: [deskTool()],
+  plugins: [deskTool(), vercelDeployTool()],
   schema: {
     types: schemas,
   },

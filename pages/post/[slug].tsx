@@ -25,6 +25,7 @@ export async function getStaticProps(context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.params;
   const post = await client.fetch(query, { slug });
+  console.log("POST data: ", post);
   return {
     props: {
       post,
