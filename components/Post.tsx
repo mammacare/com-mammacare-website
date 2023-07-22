@@ -24,6 +24,7 @@ const ptComponents = {
 };
 
 const Post = ({ post }) => {
+  console.log("Post data - client side: ", post);
   const {
     title = "Missing title",
     name = "Missing name",
