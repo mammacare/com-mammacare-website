@@ -3,7 +3,13 @@ import { PortableText } from "@portabletext/react";
 import client from "../sanity/client";
 
 function urlFor(source) {
-  return imageUrlBuilder(client).image(source);
+  return imageUrlBuilder(client)
+    .image(source)
+    .width(320)
+    .height(240)
+    .fit("max")
+    .auto("format")
+    .toString();
 }
 
 const ptComponents = {
@@ -12,13 +18,7 @@ const ptComponents = {
       if (!value?.asset?._ref) {
         return null;
       }
-      return (
-        <img
-          alt={value.alt || " "}
-          loading="lazy"
-          src={urlFor(value).width(320).height(240).fit("max").auto("format")}
-        />
-      );
+      return <img alt={value.alt || " "} loading="lazy" src={urlFor(value)} />;
     },
   },
 };
@@ -45,10 +45,7 @@ const Post = ({ post }) => {
       )}
       {authorImage && (
         <div>
-          <img
-            src={urlFor(authorImage).width(50).url()}
-            alt={`${name}'s picture`}
-          />
+          <img src={urlFor(authorImage)} alt={`${name}'s picture`} />
         </div>
       )}
       <PortableText value={body} components={ptComponents} />
