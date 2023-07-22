@@ -12,6 +12,7 @@ const Index = ({ posts }) => {
           ({ _id, title = "", slug = "", publishedAt = "" }) =>
             slug && (
               <li key={_id}>
+                {/* @ts-expect-error Server Component */}
                 <Link href="/post/[slug]" as={`/post/${slug.current}`}>
                   {title}
                 </Link>{" "}
