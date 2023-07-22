@@ -25,6 +25,8 @@ const ptComponents = {
 
 const Post = ({ post }) => {
   console.log("Post data - client side: ", post);
+  if (!post) return null;
+
   const {
     title = "Missing title",
     name = "Missing name",
@@ -32,11 +34,6 @@ const Post = ({ post }) => {
     authorImage = null,
     body = [],
   } = post;
-
-  if (!title) {
-    console.log("title is undefined");
-    return null;
-  }
 
   return (
     <article>
