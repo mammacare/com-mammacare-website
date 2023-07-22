@@ -26,7 +26,7 @@ const ptComponents = {
 const Post = ({ post }) => {
   const {
     title = "Missing title",
-    name = "Missing author name",
+    name = "Missing name",
     categories,
     authorImage,
     body = [],
