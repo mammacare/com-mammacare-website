@@ -1,3 +1,5 @@
+import React from "react";
+import shave from "shave";
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
 import client from "../sanity/client";
@@ -24,23 +26,37 @@ const ptComponents = {
   },
 };
 
-const PostPreview = ({ post }) => {
+const PostPreview = ({ index, post }) => {
+  const titleRef = React.useRef(null);
+  console.log(index);
   const {
     title = "Missing title",
-    name = "Missing name",
+    author = "Missing name",
     categories,
     authorImage,
-    body = [],
+    body,
+    image,
   } = post;
+
+  React.useEffect(() => {
+    console.log(titleRef.current.clientHeight);
+  }, [titleRef]);
+
   return (
-    <article className={styles.preview}>
-      <h1>{title}</h1>
-      <span>By {name}</span>
-      {authorImage && (
-        <div>
-          <img src={urlFor(authorImage)} alt={`${name}'s picture`} />
-        </div>
+    <article
+      className={styles.preview}
+      style={{ height: index === 0 ? "12rem" : "6rem" }}
+    >
+      {image && (
+        <img src={urlFor(image)} alt={title} className={styles.previewImg} />
       )}
+      <div className={styles.previewContent}>
+        <h1 className={styles.previewTitle} ref={titleRef}>
+          {title}
+        </h1>
+        <p className={styles.previewBody}>{body}</p>
+      </div>
+
       {/*  
       {categories && (
         <ul>

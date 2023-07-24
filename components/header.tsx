@@ -13,7 +13,7 @@ const Header = () => {
           className={styles.logoImg}
         />
         <h1 className={styles.logoText}>
-          Mammacare<sup className={styles.reg}>&reg;</sup>
+          MammaCare<sup className={styles.reg}>&reg;</sup>
         </h1>
       </div>
       <h2 className={styles.tagline}>

@@ -1,3 +1,26 @@
 .preview {
   width: 100%;
+  border-radius: 12px;
+  background-color: var(--primary-gray);
+  display: flex;
+  height: 6rem;
+}
+
+.previewImg {
+  border-radius: 12px 0 0 12px;
+  width: 25%;
+  object-fit: cover;
+}
+
+.previewContent {
+  margin: 0.5rem;
+  overflow: hidden;
+}
+
+.previewTitle {
+  margin-bottom: 0.5rem;
+}
+
+.previewBody {
+  margin: 0;
 }
