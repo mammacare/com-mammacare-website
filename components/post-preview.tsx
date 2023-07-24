@@ -1,6 +1,7 @@
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
 import client from "../sanity/client";
+import styles from "../styles/post-preview.module.css";
 
 function urlFor(source) {
   return imageUrlBuilder(client)
@@ -32,7 +33,7 @@ const PostPreview = ({ post }) => {
     body = [],
   } = post;
   return (
-    <article>
+    <article className={styles.preview}>
       <h1>{title}</h1>
       <span>By {name}</span>
       {authorImage && (

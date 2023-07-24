@@ -1,25 +1,14 @@
 import Link from "next/link";
 import groq from "groq";
 import client from "../sanity/client";
+import PostPreview from "../components/post-preview";
 
 const Index = ({ posts }) => {
   console.log(posts);
   return (
     <div>
-      <h1>MammaCare Corporation</h1>
       {posts.length > 0 &&
-        posts.map(
-          ({ _id, title = "", slug = "", publishedAt = "" }) =>
-            slug && (
-              <li key={_id}>
-                {/* @ts-expect-error Server Component */}
-                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                  {title}
-                </Link>{" "}
-                ({new Date(publishedAt).toDateString()})
-              </li>
-            )
-        )}
+        posts.map((post) => <PostPreview key={post._id} post={post} />)}
     </div>
   );
 };
