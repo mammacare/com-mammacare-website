@@ -33,7 +33,7 @@ const PostPreview = ({ index, post }) => {
     author = "Missing name",
     categories,
     authorImage,
-    body,
+    summary,
     image,
     slug,
   } = post;
@@ -58,7 +58,7 @@ const PostPreview = ({ index, post }) => {
             {title}
           </h1>
         </Link>
-        <p className={styles.previewBody}>{body.join(" ")}</p>
+        <p className={styles.previewBody}>{summary}</p>
       </div>
     </article>
   );

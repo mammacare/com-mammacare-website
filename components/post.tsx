@@ -1,6 +1,7 @@
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
 import client from "../sanity/client";
+import styles from "../styles/post.module.css";
 
 function urlFor(source) {
   return imageUrlBuilder(client)
@@ -18,7 +19,14 @@ const ptComponents = {
       if (!value?.asset?._ref) {
         return null;
       }
-      return <img alt={value.alt || " "} loading="lazy" src={urlFor(value)} />;
+      return (
+        <img
+          alt={value.alt || ""}
+          loading="lazy"
+          src={urlFor(value)}
+          className={styles.postImg}
+        />
+      );
     },
   },
 };

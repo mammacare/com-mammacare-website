@@ -23,7 +23,7 @@ export async function getStaticProps() {
         "author": author->name,
         "categories": categories[]->title,
         "image": mainImage.asset -> url,
-        "body": body[].children[].text,
+        summary
       } | order(publishedAt asc)
     `);
   console.log(posts);
