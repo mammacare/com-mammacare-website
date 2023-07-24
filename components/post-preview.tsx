@@ -53,16 +53,12 @@ const PostPreview = ({ index, post }) => {
         <img src={urlFor(image)} alt={title} className={styles.previewImg} />
       )}
       <div className={styles.previewContent}>
-        <h1 className={styles.previewTitle} ref={titleRef}>
-          {title}
-        </h1>
-        <p className={styles.previewBody}>{body.join(" ")}</p>
         <Link href="/post/[slug]" as={`/post/${slug.current}`}>
           <h1 className={styles.previewTitle} ref={titleRef}>
             {title}
           </h1>
-        </Link>{" "}
-        <p className={styles.previewBody}>{body}</p>
+        </Link>
+        <p className={styles.previewBody}>{body.join(" ")}</p>
       </div>
     </article>
   );
