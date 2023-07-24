@@ -28,6 +28,7 @@ export async function getStaticProps(context) {
     props: {
       post,
     },
+    revalidate: 3,
   };
 }
 export default Post;
