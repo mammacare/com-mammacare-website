@@ -24,7 +24,6 @@ const ptComponents = {
 };
 
 const Post = ({ post }) => {
-  console.log("Post data - client side: ", post);
   if (!post) return null;
 
   const {

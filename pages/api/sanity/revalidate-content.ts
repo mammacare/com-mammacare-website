@@ -10,8 +10,6 @@ export default async function handler(req, res) {
     SANITY_WEBHOOK_SECRET
   );
 
-  console.log(`===== Is the webhook request valid? ${isValid}`);
-
   // Validate signature
   if (!isValid) {
     res.status(401).json({ success: false, message: "Invalid signature" });
@@ -20,8 +18,6 @@ export default async function handler(req, res) {
 
   try {
     const pathToRevalidate = `/post/${req.body.slug}`;
-
-    console.log(`===== Revalidating: ${pathToRevalidate}`);
 
     await res.revalidate(pathToRevalidate);
 

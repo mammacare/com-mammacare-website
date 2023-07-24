@@ -4,7 +4,6 @@ import client from "../sanity/client";
 import PostPreview from "../components/post-preview";
 
 const Index = ({ posts }) => {
-  console.log(posts);
   return (
     <div>
       {posts.length > 0 &&
