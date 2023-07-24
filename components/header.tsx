@@ -6,7 +6,12 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Image src={Logo} alt="MammaCare Logo" height={40} />
+        <Image
+          src={Logo}
+          alt="MammaCare Logo"
+          height={48}
+          className={styles.logoImg}
+        />
         <h1 className={styles.logoText}>
           Mammacare<sup className={styles.reg}>&reg;</sup>
         </h1>

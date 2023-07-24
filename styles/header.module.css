@@ -4,6 +4,7 @@
   padding: 0.25rem 1rem 0.25rem 1rem;
   margin-bottom: 1rem;
   box-shadow: 0px 1px 4px 0px rgba(204, 204, 204, 1);
+  align-items: center;
 }
 
 .logo {
@@ -12,8 +13,12 @@
   justify-content: center;
 }
 
+.logoImg {
+  height: 40px;
+}
+
 .logoText {
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
   font-size: 2rem;
   font-family: "Segoe UI Light", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -26,4 +31,25 @@
   font-family: "Segoe UI Light", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.7rem;
   margin: 0.5rem 0 0 0;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+  .logo {
+    margin-left: 1rem;
+  }
+  .logoImg {
+    height: 48px;
+  }
+  .logoText {
+    font-size: 2.5rem;
+  }
+  .reg {
+    font-size: 1.25rem;
+  }
+  .tagline {
+    font-size: 0.85rem;
+  }
 }

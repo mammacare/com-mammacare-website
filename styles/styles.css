@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@400;600&display=swap");
 
+:root {
+  --off-white: #fffafa;
+  --gunmetal: #232b2b;
+  --mammacare-red: #680000;
+  --primary-gray: #ebe5e3;
+  --secondary-gray: #dbd4d2;
+}
+
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f1f3f6;
-  color: #1c2430;
+  background-color: var(--off-white);
+  color: var(--gunmetal);
   margin: 0;
 }
 

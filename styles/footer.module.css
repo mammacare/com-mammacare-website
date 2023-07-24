@@ -26,3 +26,34 @@
   margin-top: 0.25rem;
   text-align: center;
 }
+
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+  .footerText {
+    font-size: 1.15rem;
+  }
+  .footerLink {
+    font-size: 1.75rem;
+  }
+  .rights {
+    font-size: 0.75rem;
+  }
+}
+/* 
+@media screen and (min-width: 992px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footerTextContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .footerLink {
+    margin-left: 0.5rem;
+  }
+} */
