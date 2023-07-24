@@ -4,6 +4,7 @@ import client from "../../sanity/client";
 
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
   title,
+  "date": publishedAt,
   "name": author->name,
   "categories": categories[]->title,
   "authorImage": author->image,
@@ -24,6 +25,7 @@ export async function getStaticProps(context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.params;
   const post = await client.fetch(query, { slug });
+  console.log(post);
   return {
     props: {
       post,

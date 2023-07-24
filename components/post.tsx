@@ -37,29 +37,19 @@ const Post = ({ post }) => {
   const {
     title = "Missing title",
     name = "Missing name",
-    categories = [],
     authorImage = null,
     body = [],
+    date = new Date().toISOString(),
   } = post;
 
   return (
     <article>
-      <h1>{title}</h1>
-      <span>By {name}</span>
-      {categories && (
-        <ul>
-          Posted in
-          {categories.map((category) => (
-            <li key={category}>{category}</li>
-          ))}
-        </ul>
-      )}
-      {authorImage && (
-        <div>
-          <img src={urlFor(authorImage)} alt={`${name}'s picture`} />
-        </div>
-      )}
+      <h1 className={styles.title}>{title}</h1>
+      <span className={styles.date}>{new Date(date).toLocaleString()}</span>
       <PortableText value={body} components={ptComponents} />
+      <span className={styles.by}>
+        <code>&#8212;</code> {name}
+      </span>
     </article>
   );
 };

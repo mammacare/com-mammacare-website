@@ -1,3 +1,16 @@
+.title {
+  font-size: 1.75em;
+}
+
+.date {
+  font-size: 0.75em;
+  /* color: #515e72; */
+}
+
 .postImg {
   max-width: 100%;
+}
+
+.by {
+  font-weight: 600;
 }

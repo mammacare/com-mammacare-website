@@ -7,8 +7,6 @@ import styles from "../styles/post-preview.module.css";
 function urlFor(source) {
   return imageUrlBuilder(client)
     .image(source)
-    .width(320)
-    .height(240)
     .fit("max")
     .auto("format")
     .toString();
