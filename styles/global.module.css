@@ -8,3 +8,11 @@
   padding: 0 1rem;
   flex: 1;
 }
+
+@media (min-width: 768px) {
+  .container {
+    width: 70%;
+    min-width: 736px;
+    margin: 0 auto;
+  }
+}

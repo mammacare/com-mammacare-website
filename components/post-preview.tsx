@@ -1,5 +1,4 @@
 import React from "react";
-import shave from "shave";
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
 import client from "../sanity/client";
@@ -54,18 +53,8 @@ const PostPreview = ({ index, post }) => {
         <h1 className={styles.previewTitle} ref={titleRef}>
           {title}
         </h1>
-        <p className={styles.previewBody}>{body}</p>
+        <p className={styles.previewBody}>{body.join(" ")}</p>
       </div>
-
-      {/*  
-      {categories && (
-        <ul>
-          Posted in
-          {categories.map((category) => (
-            <li key={category}>{category}</li>
-          ))}
-        </ul>
-      )} */}
     </article>
   );
 };
