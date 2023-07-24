@@ -49,6 +49,17 @@ export default defineType({
       title: "Body",
       type: "blockContent",
     }),
+    defineField({
+      name: "summary",
+      title: "Summary",
+      type: "string",
+      validation: (Rule) => [
+        Rule.required()
+          .min(10)
+          .error("A summary of min. 10 characters is required"),
+        Rule.max(50).warning("Shorter sumamries are usually better"),
+      ],
+    }),
   ],
 
   preview: {
