@@ -53,7 +53,6 @@ const PostPreview = ({ index, post }) => {
         <img src={urlFor(image)} alt={title} className={styles.previewImg} />
       )}
       <div className={styles.previewContent}>
-        {/* @ts-expect-error Server Component */}
         <Link href="/post/[slug]" as={`/post/${slug.current}`}>
           <h1 className={styles.previewTitle} ref={titleRef}>
             {title}
