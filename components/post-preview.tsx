@@ -1,6 +1,6 @@
 import React from "react";
+import Link from "next/link";
 import imageUrlBuilder from "@sanity/image-url";
-import { PortableText } from "@portabletext/react";
 import client from "../sanity/client";
 import styles from "../styles/post-preview.module.css";
 
@@ -27,7 +27,7 @@ const ptComponents = {
 
 const PostPreview = ({ index, post }) => {
   const titleRef = React.useRef(null);
-  console.log(index);
+  console.log(post);
   const {
     title = "Missing title",
     author = "Missing name",
@@ -35,11 +35,14 @@ const PostPreview = ({ index, post }) => {
     authorImage,
     body,
     image,
+    slug,
   } = post;
 
   React.useEffect(() => {
     console.log(titleRef.current.clientHeight);
   }, [titleRef]);
+
+  if (!slug) return null;
 
   return (
     <article
@@ -54,6 +57,12 @@ const PostPreview = ({ index, post }) => {
           {title}
         </h1>
         <p className={styles.previewBody}>{body.join(" ")}</p>
+        <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+          <h1 className={styles.previewTitle} ref={titleRef}>
+            {title}
+          </h1>
+        </Link>{" "}
+        <p className={styles.previewBody}>{body}</p>
       </div>
     </article>
   );
