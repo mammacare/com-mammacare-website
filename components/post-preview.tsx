@@ -40,22 +40,23 @@ const PostPreview = ({ index, post }) => {
   if (!slug) return null;
 
   return (
-    <article
-      className={styles.preview}
-      style={{ height: index === 0 ? "12rem" : "6rem" }}
+    <Link
+      href="/post/[slug]"
+      as={`/post/${slug.current}`}
+      className={styles.previewLink}
     >
-      {image && (
-        <img src={urlFor(image)} alt={title} className={styles.previewImg} />
-      )}
-      <div className={styles.previewContent}>
-        <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+      <article className={styles.preview}>
+        {image && (
+          <img src={urlFor(image)} alt={title} className={styles.previewImg} />
+        )}
+        <div className={styles.previewContent}>
           <h1 className={styles.previewTitle} ref={titleRef}>
             {title}
           </h1>
-        </Link>
-        <p className={styles.previewBody}>{summary}</p>
-      </div>
-    </article>
+          <p className={styles.previewBody}>{summary}</p>
+        </div>
+      </article>
+    </Link>
   );
 };
 
