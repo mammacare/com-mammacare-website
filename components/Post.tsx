@@ -1,6 +1,6 @@
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "@portabletext/react";
-import client from "../sanity/client";
+import { client } from "@/sanity/lib/client";
 import styles from "../styles/post.module.css";
 
 function urlFor(source) {

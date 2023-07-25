@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import imageUrlBuilder from "@sanity/image-url";
-import client from "../sanity/client";
+import { client } from "@/sanity/lib/client";
 import styles from "../styles/post-preview.module.css";
 
 function urlFor(source) {
