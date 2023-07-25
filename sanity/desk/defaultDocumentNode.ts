@@ -10,9 +10,9 @@ function getPreviewUrl(doc: SanityDocument) {
   // const postUrl = `${window.location.protocol}//${window.location.host}/api/preview?slug=${doc.slug.current}`;
 
   const homeUrl = `${window.location.protocol}//${window.location.host}/`;
-
+  //@ts-ignore
   const postUrl = `${window.location.protocol}//${window.location.host}/post/${doc.slug.current}`;
-
+  //@ts-ignore
   return doc?.slug?.current ? postUrl : homeUrl;
   // return postUrl;
 }
