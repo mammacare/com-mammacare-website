@@ -1,9 +1,13 @@
+.previewLink {
+  text-decoration: none;
+  color: var(--gunmetal);
+}
+
 .preview {
   width: 100%;
   border-radius: 12px;
   background-color: var(--primary-gray);
   display: flex;
-  height: 6rem;
 }
 
 .previewImg {

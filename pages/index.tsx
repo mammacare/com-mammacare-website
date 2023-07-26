@@ -65,7 +65,11 @@ import { GetStaticProps } from "next";
 const PreviewProvider = dynamic(() => import("@/components/PreviewProvider"));
 
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)]{
-  _id, title, slug
+  _id, title, slug,
+  "author": author->name,
+  "categories": categories[]->title,
+  "image": mainImage.asset->url,
+  summary
 }`;
 
 export const getStaticProps: GetStaticProps = async (context) => {

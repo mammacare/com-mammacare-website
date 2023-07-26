@@ -48,7 +48,7 @@ import { getClient } from "@/sanity/lib/getClient";
 
 const PreviewProvider = dynamic(() => import("@/components/PreviewProvider"));
 export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{ 
-  title, mainImage, body
+  title, mainImage, body, "author": author->name
 }`;
 
 // Prepare Next.js to know which routes already exist
@@ -69,7 +69,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const data = await client.fetch(postQuery, context.params);
 
-  return { props: { data, preview, previewToken } };
+  return { props: { data, preview, previewToken }, revalidate: 3 };
 };
 
 export default function Page({
