@@ -21,6 +21,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
   { schemaType }
 ) => {
+  console.log(S);
   switch (schemaType) {
     case `post`:
       return S.document().views([

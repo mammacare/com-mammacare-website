@@ -38,8 +38,6 @@ const Post = ({ post }) => {
   const {
     title = "Missing title",
     author = "Missing name",
-    categories = [],
-    authorImage = null,
     body = [],
     date = new Date().toISOString(),
   } = post;
